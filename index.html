@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Drift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>NEON <b>DRIFT</b></span></div>
+      <div class="status"><span class="status-dot"></span><span id="statusText">SYSTEM READY</span></div>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow">VOID RUN / 001</p>
+        <h1>Stay in the <em>light.</em></h1>
+        <p class="lede">Thread the pulse. Dodge the static. How long can you keep the signal alive?</p>
+      </div>
+      <div class="controls-note"><span class="key">A</span><span class="key">D</span><span class="key">←</span><span class="key">→</span><span>MOVE</span></div>
+    </section>
+
+    <section class="game-layout">
+      <div class="game-frame">
+        <canvas id="gameCanvas" aria-label="Neon Drift game area"></canvas>
+        <div class="scanlines"></div>
+        <div id="startOverlay" class="overlay">
+          <div class="overlay-kicker">SIGNAL FOUND</div>
+          <h2>READY TO<br><span>DRIFT?</span></h2>
+          <button id="startButton" class="primary-button">INITIALIZE RUN <span>↗</span></button>
+          <p>Use A / D or arrow keys to steer</p>
+        </div>
+        <div id="pauseOverlay" class="overlay hidden"><div class="overlay-kicker">SIGNAL PAUSED</div><h2>TAKE A<br><span>BREATH.</span></h2><p>Press P or the button below to resume</p><button id="resumeButton" class="primary-button">RESUME RUN <span>↗</span></button></div>
+        <div id="gameOverOverlay" class="overlay hidden"><div class="overlay-kicker">SIGNAL LOST</div><h2>STATIC<br><span>WON.</span></h2><p id="finalScore">SCORE 000000</p><button id="restartButton" class="primary-button">RUN IT BACK <span>↗</span></button></div>
+      </div>
+
+      <aside class="dashboard">
+        <div class="metric metric-score"><span class="metric-label">CURRENT SCORE</span><strong id="score">000000</strong><span class="metric-unit">PTS</span></div>
+        <div class="metric"><span class="metric-label">HIGH SCORE</span><strong id="highScore">000000</strong><span class="metric-unit">PTS</span></div>
+        <div class="metric"><span class="metric-label">RUN TIME</span><strong id="runTime">00:00</strong><span class="metric-unit">MIN</span></div>
+        <div class="signal-panel"><div class="metric-label">SIGNAL STRENGTH</div><div class="signal-bars" id="signalBars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="signal-copy" id="signalCopy">NOMINAL</div></div>
+        <button id="pauseButton" class="secondary-button" disabled><span>Ⅱ</span> PAUSE RUN</button>
+      </aside>
+    </section>
+
+    <footer><span>© 2088 / ORBITAL ARCADE</span><span>ESC TO RESET <b>•</b> P TO PAUSE</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
